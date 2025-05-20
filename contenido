@@ -1,0 +1,31 @@
+"""
+primos.py
+
+Este script encuentra todos los números primos dentro de un rango determinado.
+Autor: [Tu Nombre]
+Fecha: [Fecha]
+Licencia: MIT
+
+Uso:
+    Ejecuta el script en Python y proporciona un rango como argumento.
+
+Ejemplo:
+    encontrar_primos(50) -> Retorna una lista de números primos hasta 50.
+"""
+
+def es_primo(n):
+    """Verifica si un número es primo."""
+    if n < 2:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+def encontrar_primos(rango):
+    """Genera una lista de números primos hasta el valor dado."""
+    return [num for num in range(2, rango + 1) if es_primo(num)]
+
+if __name__ == "__main__":
+    rango = 50  # Puedes cambiar este valor según lo necesites
+    print(f"Números primos hasta {rango}: {encontrar_primos(rango)}")
